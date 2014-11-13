@@ -32,6 +32,12 @@
     XCTAssertEqual(expected, result);
 }
 
+- (void)testAddMethod_OneLengthInput_ReturnsEquivalent{
+    int result = [sut add:@"3"];
 
+    int expected = 3;
+
+    XCTAssertEqual(expected, result);
+}
 
 @end
