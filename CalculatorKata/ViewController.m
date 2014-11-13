@@ -8,6 +8,7 @@
 
 
 #import "ViewController.h"
+#import "Calculator.h"
 
 
 @interface ViewController ()
@@ -19,12 +20,19 @@
 @implementation ViewController
 
 - (IBAction)calculate:(id)sender {
-    self.resultText.text = @"hello world";
+    @try {
+        Calculator *calculator = [[Calculator alloc] init];
+        int result = [calculator add:self.inputText.text];
+        self.resultText.text = [NSString stringWithFormat:@"%d", result];
+    }
+    @catch (NSException *ex){
+        self.resultText.text = [ex.name description];
+    }
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
