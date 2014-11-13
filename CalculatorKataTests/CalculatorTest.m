@@ -40,4 +40,12 @@
     XCTAssertEqual(expected, result);
 }
 
+- (void)testAddMethod_TwoLengthInput_ReturnsSum{
+    int result = [sut add:@"3,4"];
+
+    int expected = 7;
+
+    XCTAssertEqual(expected, result);
+}
+
 @end
