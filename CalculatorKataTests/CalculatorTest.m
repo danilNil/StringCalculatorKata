@@ -48,4 +48,18 @@
     XCTAssertEqual(expected, result);
 }
 
+- (void)testAddMethodAnyLengthInput_ReturnsSum{
+    int howMany = arc4random() %999;
+    NSMutableString *numbers = [NSMutableString string];
+    int expected = 0;
+
+    for (int i = 0; i < howMany; ++i) {
+        [numbers appendString:[NSString stringWithFormat:@"%d,",i]];
+        expected +=i;
+    }
+
+    int result = [sut add:numbers];
+    XCTAssertEqual(expected, result, @"Any Lentgh");
+}
+
 @end
