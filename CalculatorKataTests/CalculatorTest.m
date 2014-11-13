@@ -59,7 +59,20 @@
     }
 
     int result = [sut add:numbers];
-    XCTAssertEqual(expected, result, @"Any Lentgh");
+    XCTAssertEqual(expected, result, @"Any Lentgh input return sum");
+}
+
+- (void)testAddMethod_NewLineDelimiterInput_ReturnsSum{
+    int result = [sut add:@"3,4\n5"];
+
+    int expected = 12;
+
+    XCTAssertEqual(expected, result);
+}
+
+
+-(void)testAddMethod_DuplicateDelimiterInput_ThrowsExpectedException{
+    XCTAssertThrowsSpecificNamed([sut add:@"3,,4"], NSException, @"DuplicateDelimitersException", @"");
 }
 
 @end
