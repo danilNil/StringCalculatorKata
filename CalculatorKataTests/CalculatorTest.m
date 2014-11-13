@@ -75,4 +75,17 @@
     XCTAssertThrowsSpecificNamed([sut add:@"3,,4"], NSException, @"DuplicateDelimitersException", @"");
 }
 
+- (void)testAddMethod_CustomDelimiterInput_ReturnsSum{
+    int result = [sut add:@"//$\n2$3,4\n5"];
+
+    int expected = 14;
+
+    XCTAssertEqual(expected, result, @"New line delimiter should return sum");
+}
+
+-(void)testAddMethod_NegativeNumbersInput_ThrowsExpectedException{
+    XCTAssertThrowsSpecificNamed([sut add:@"2,-3,-4,6"], NSException, @"NegativeNumbersException", @"");
+}
+
+
 @end
