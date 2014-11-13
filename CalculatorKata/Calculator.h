@@ -7,4 +7,5 @@
 
 
 @interface Calculator : NSObject
+- (int)add:(NSString *)numbers;
 @end

@@ -24,9 +24,14 @@
 
 }
 
-- (void)testNotSure{
-    XCTAssertTrue(false, @"This descr should be true");
+- (void)testAddMethod_ZeroLengthInput_ReturnsZero{
+    int result = [sut add:@""];
+
+    int expected = 0;
+
+    XCTAssertEqual(expected, result);
 }
+
 
 
 @end
